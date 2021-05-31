@@ -1,15 +1,10 @@
-# middleware
-a middleware util for go http lib.
-
-## usage
-
-simplily calls  
-`http.HandleFunc("/", middleware.Decorate(middlewareTestHandle, middlewareDemo1, middlewareDemo2))`
-
-
-### example:
-```
 package main
+
+import (
+	"net/http"
+
+	"github.com/AlpsMonaco/middleware"
+)
 
 func main() {
 	http.HandleFunc("/", middleware.Decorate(middlewareTestHandle, middlewareDemo1, middlewareDemo2))
@@ -33,14 +28,3 @@ func middlewareDemo2(mw *middleware.Middleware) {
 func middlewareTestHandle(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("this is middleware test handle\r\n"))
 }
-
-```
-once access `http://127.0.0.1/` will outputs
-```
-this is middleware1 start
-this is middleware2 start
-this is middleware test handle
-this is middleware2 end
-this is middleware1 end
-```
-on your browser.
