@@ -3,7 +3,7 @@ a middleware util for go http lib.
 
 ## usage
 
-simplily calls  
+simply calls  
 `http.HandleFunc("/", middleware.Decorate(middlewareTestHandle, middlewareDemo1, middlewareDemo2))`
 
 
